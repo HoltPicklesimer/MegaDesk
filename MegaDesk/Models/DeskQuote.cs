@@ -67,7 +67,7 @@ namespace MegaDesk.Models
 
         private decimal GetDeliveryCost(decimal surfaceArea)
         {
-            var deliveryCost = 0M;
+            decimal deliveryCost;
 
             if (surfaceArea < 1000)
                 deliveryCost = DeliveryOption.SmallPrice;
