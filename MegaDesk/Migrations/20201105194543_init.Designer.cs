@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MegaDesk.Migrations
 {
     [DbContext(typeof(MegaDeskContext))]
-    [Migration("20201103211933_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201105194543_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,7 +80,8 @@ namespace MegaDesk.Migrations
 
                     b.Property<string>("CustomerName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("DeliveryOptionId")
                         .HasColumnType("int");
@@ -92,7 +93,7 @@ namespace MegaDesk.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("QuotePrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("DeskQuoteId");
 

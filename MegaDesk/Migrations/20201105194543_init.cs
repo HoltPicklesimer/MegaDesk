@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MegaDesk.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,10 +66,10 @@ namespace MegaDesk.Migrations
                 {
                     DeskQuoteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerName = table.Column<string>(nullable: false),
+                    CustomerName = table.Column<string>(maxLength: 100, nullable: false),
                     DeskId = table.Column<int>(nullable: false),
                     DeliveryOptionId = table.Column<int>(nullable: false),
-                    QuotePrice = table.Column<decimal>(nullable: false),
+                    QuotePrice = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     QuoteDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
